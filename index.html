@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>สมัครร้านค้า — ตลาดสกลม่วนจอย</title>
+<meta name="description" content="ใบสมัครร้านค้า ตลาดสกลม่วนจอย อ.พังโคน จ.สกลนคร">
+<meta property="og:title" content="สมัครร้านค้า ตลาดสกลม่วนจอย">
+<meta property="og:description" content="เปิดรับสมัครร้านค้า อาหาร เครื่องดื่ม ของกินเล่น สินค้าทั่วไป — ฟรี 1 เดือนแรก">
+<meta property="og:image" content="poster.jpg">
+<meta name="theme-color" content="#0b2e1f">
+<style>
+  :root{--green:#0b2e1f;--green2:#16573b;--gold:#e0b04a;--gold2:#f6d98a;--cream:#fffaf0;--line:#e8dcbf;--muted:#6f6a5e;--red:#b3261e}
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{font-family:-apple-system,"Sukhumvit Set","Noto Sans Thai","Leelawadee UI",Tahoma,sans-serif;color:#222;font-size:16px;line-height:1.5;background:var(--green);min-height:100vh}
+  /* พื้นหลังโปสเตอร์ (ใช้ div fixed เพราะ iPhone ไม่รองรับ background-attachment:fixed) */
+  .bg{position:fixed;inset:-30px;background:#0b2e1f url("poster.jpg") center/cover no-repeat;filter:blur(8px);z-index:-2}
+  .bg::after{content:"";position:absolute;inset:0;background:rgba(6,30,20,.6)}
+  .page{max-width:620px;margin:0 auto;padding:28px 16px 40px}
+  .page{padding-top:16px}
+  .poster{display:block;width:100%;max-width:480px;height:auto;margin:0 auto;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.45)}
+  .down{display:block;text-align:center;color:var(--gold2);font-size:15px;margin:14px 0 16px;text-decoration:none}
+  .card{background:var(--cream);border-radius:18px;padding:20px 16px;box-shadow:0 10px 30px rgba(0,0,0,.35);border-top:4px solid var(--gold)}
+  .card h2{margin:0 0 4px;font-size:20px;color:var(--green)}
+  .card .note{margin:0 0 14px;color:var(--muted);font-size:14px}
+  .sec{font-size:14px;font-weight:700;color:var(--green2);margin:20px 0 4px;padding-bottom:4px;border-bottom:1px dashed var(--line)}
+  label{display:block;font-size:15px;margin:12px 0 5px;color:#333}
+  .req{color:var(--red)}
+  .hint{font-size:13px;color:var(--muted);font-weight:400}
+  input[type=text],input[type=tel],input[type=url],textarea{font:inherit;font-size:16px;width:100%;padding:11px 12px;border:1px solid #d8cba8;border-radius:10px;background:#fff;color:#222;-webkit-appearance:none;appearance:none}
+  textarea{min-height:84px;resize:vertical}
+  input:focus,textarea:focus{outline:2px solid var(--gold);border-color:var(--gold)}
+  .invalid{border-color:var(--red)!important;background:#fff6f5!important}
+  .radios{display:grid;gap:8px}
+  .radios label{display:flex;align-items:center;gap:10px;margin:0;padding:11px 12px;background:#fff;border:1px solid #d8cba8;border-radius:10px;cursor:pointer}
+  .radios input{width:20px;height:20px;margin:0;accent-color:var(--green2)}
+  .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+  .submit{width:100%;margin-top:22px;font:inherit;font-size:18px;font-weight:700;padding:14px;border:0;border-radius:12px;background:linear-gradient(180deg,#1d6b48,#0f4a31);color:#fff;cursor:pointer;box-shadow:0 4px 0 #0a3322}
+  .submit:disabled{opacity:.6;cursor:wait}
+  .msg{margin-top:12px;font-size:15px;min-height:1em}
+  .msg.err{color:var(--red)}
+  .done{text-align:center;padding:10px 4px}
+  .done .ok{width:64px;height:64px;border-radius:50%;background:#dcfce7;color:#166534;font-size:36px;line-height:64px;margin:0 auto 10px}
+  .done h2{margin:0 0 8px}
+  .done p{margin:6px 0;color:#444}
+  .contact{margin-top:18px;text-align:center;color:#fff;font-size:14px;text-shadow:0 1px 4px rgba(0,0,0,.6)}
+  .contact a{color:var(--gold2);font-weight:700;text-decoration:none}
+  @media (min-width:640px){.card{padding:28px}}
+</style>
+</head>
+<body>
+<div class="bg" aria-hidden="true"></div>
+
+<div class="page">
+  <img class="poster" src="poster.jpg" alt="ตลาดสกลม่วนจอย เปิดรับสมัครร้านค้า" width="1122" height="1402">
+  <a class="down" href="#formCard">▼ กรอกใบสมัครด้านล่าง ▼</a>
+
+  <div class="card" id="formCard">
+    <h2>ใบสมัครร้านค้า</h2>
+    <p class="note">กรอกข้อมูลให้ครบ ทางตลาดจะติดต่อกลับเพื่อนัดชิมอาหาร/ดูสินค้า ก่อนทำสัญญา</p>
+
+    <form id="f" novalidate>
+      <div class="sec">ข้อมูลร้าน</div>
+      <label for="shopName">ชื่อร้าน <span class="req">*</span></label>
+      <input type="text" id="shopName" name="shopName" maxlength="100" required>
+
+      <label for="ownerName">ชื่อเจ้าของ <span class="req">*</span></label>
+      <input type="text" id="ownerName" name="ownerName" maxlength="100" required autocomplete="name">
+
+      <label for="phone">เบอร์โทร <span class="req">*</span></label>
+      <input type="tel" id="phone" name="phone" maxlength="20" required inputmode="tel" autocomplete="tel" placeholder="0xx-xxx-xxxx">
+
+      <label for="lineId">LINE ID</label>
+      <input type="text" id="lineId" name="lineId" maxlength="60" autocapitalize="off">
+
+      <div class="sec">สิ่งที่จะขาย</div>
+      <label for="productType">ประเภทอาหาร/สินค้า <span class="req">*</span></label>
+      <input type="text" id="productType" name="productType" maxlength="150" required placeholder="เช่น อาหารอีสาน, ชาไข่มุก, เสื้อผ้า">
+
+      <label for="mainItems">เมนูหรือสินค้าหลัก <span class="req">*</span></label>
+      <textarea id="mainItems" name="mainItems" maxlength="1000" required placeholder="เช่น ส้มตำ ไก่ย่าง ข้าวเหนียว"></textarea>
+
+      <label for="highlights">จุดเด่นของร้าน</label>
+      <textarea id="highlights" name="highlights" maxlength="1000"></textarea>
+
+      <label for="experience">ประสบการณ์ขาย <span class="hint">(เคยขายที่ไหน นานแค่ไหน)</span></label>
+      <textarea id="experience" name="experience" maxlength="1000"></textarea>
+
+      <label for="links">ลิงก์เพจหรือรูป <span class="hint">(Facebook, TikTok, Google Drive ฯลฯ)</span></label>
+      <input type="text" id="links" name="links" maxlength="500" autocapitalize="off" inputmode="url" placeholder="https://">
+
+      <div class="sec">การเช่า</div>
+      <label>รูปแบบการเช่าที่สนใจ</label>
+      <div class="radios">
+        <label><input type="radio" name="rentalType" value="รายเดือน" checked> รายเดือน</label>
+        <label><input type="radio" name="rentalType" value="ยังไม่แน่ใจ ขอคุยรายละเอียดก่อน"> ยังไม่แน่ใจ ขอคุยรายละเอียดก่อน</label>
+      </div>
+
+      <label for="remark">หมายเหตุ</label>
+      <textarea id="remark" name="remark" maxlength="1000" placeholder="เช่น ต้องใช้ไฟมาก, ต้องการล็อกใกล้ทางเข้า"></textarea>
+
+      <!-- กันบอท: ห้ามลบ ห้ามกรอก -->
+      <div class="hp" aria-hidden="true">
+        <label for="website">Website</label>
+        <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+      </div>
+
+      <button type="submit" class="submit" id="btn">ส่งใบสมัคร</button>
+      <div class="msg" id="msg" role="status"></div>
+    </form>
+  </div>
+
+  <div class="contact">
+    สอบถาม โทร <a href="tel:0918749265">091-874-9265</a> (คุณแพร)<br>
+    <span style="opacity:.8">*เงื่อนไขเป็นไปตามที่ตลาดกำหนด</span>
+  </div>
+</div>
+
+<script>
+// ===== วางลิงก์ /exec ของ Apps Script ระหว่างเครื่องหมาย ' ' ด้านล่าง =====
+var API_URL = 'https://script.google.com/macros/s/AKfycbyk5UUooixz93OxC3zORuaAChh3ZKgT-uD6ZtGt1aX_Cubla0i6dt_589LPKrvWtu6JoQ/exec';
+// ==========================================================================
+
+(function () {
+  var form = document.getElementById('f');
+  var btn = document.getElementById('btn');
+  var msg = document.getElementById('msg');
+  var REQUIRED = ['shopName', 'ownerName', 'phone', 'productType', 'mainItems'];
+
+  function showErr(t) { msg.className = 'msg err'; msg.textContent = t; }
+
+  form.addEventListener('input', function (e) {
+    if (e.target.classList) e.target.classList.remove('invalid');
+  });
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (btn.disabled) return;
+    msg.textContent = '';
+
+    var data = {};
+    var fd = new FormData(form);
+    fd.forEach(function (v, k) { data[k] = String(v).trim(); });
+
+    var firstBad = null;
+    REQUIRED.forEach(function (k) {
+      var el = document.getElementById(k);
+      if (!data[k]) { el.classList.add('invalid'); if (!firstBad) firstBad = el; }
+    });
+    var digits = (data.phone || '').replace(/\D/g, '');
+    if (data.phone && (digits.length < 9 || digits.length > 12)) {
+      document.getElementById('phone').classList.add('invalid');
+      if (!firstBad) firstBad = document.getElementById('phone');
+      showErr('เบอร์โทรไม่ถูกต้อง');
+    }
+    if (firstBad) {
+      if (!msg.textContent) showErr('กรุณากรอกช่องที่มีเครื่องหมาย * ให้ครบ');
+      firstBad.focus();
+      firstBad.scrollIntoView({ block: 'center' });
+      return;
+    }
+
+    btn.disabled = true;
+    btn.textContent = 'กำลังส่ง...';
+
+    fetch(API_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify(data),
+      redirect: 'follow'
+    })
+      .then(function (r) { return r.json(); })
+      .then(function (res) {
+        if (res && res.ok) {
+          showDone(data.shopName);
+        } else {
+          throw new Error((res && res.error) || 'ส่งไม่สำเร็จ');
+        }
+      })
+      .catch(function (err) {
+        btn.disabled = false;
+        btn.textContent = 'ส่งใบสมัคร';
+        var t = err && err.message && /[ก-๙]/.test(err.message) ? err.message
+          : 'ส่งไม่สำเร็จ กรุณาตรวจสอบอินเทอร์เน็ตแล้วลองใหม่';
+        showErr(t + ' หรือโทร 091-874-9265');
+      });
+  });
+
+  function showDone(shop) {
+    var card = document.getElementById('formCard');
+    card.innerHTML = '';
+    var d = document.createElement('div'); d.className = 'done';
+    var ok = document.createElement('div'); ok.className = 'ok'; ok.textContent = '✓';
+    var h = document.createElement('h2'); h.textContent = 'ส่งใบสมัครเรียบร้อย';
+    var p1 = document.createElement('p'); p1.textContent = 'ขอบคุณร้าน "' + shop + '" ที่สนใจตลาดสกลม่วนจอย';
+    var p2 = document.createElement('p'); p2.textContent = 'ทางตลาดจะติดต่อกลับทางเบอร์โทรหรือ LINE ที่ให้ไว้';
+    d.appendChild(ok); d.appendChild(h); d.appendChild(p1); d.appendChild(p2);
+    card.appendChild(d);
+    var dn = document.querySelector('.down'); if (dn) dn.style.display = 'none';
+    card.scrollIntoView({ block: 'start' });
+  }
+})();
+</script>
+</body>
+</html>
